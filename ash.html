@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            font-size:15px;
+            width: 100%;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;    
+            flex-direction: column;
+        }
+        input{
+            margin-bottom: 5px;
+        }
+        .fondo {
+            background-image: url("images/fondo.jpg");
+            height: inherit;
+            width: inherit;
+            background-repeat: no-repeat;
+            background-size: 100vw 91vh;
+            
+        }
+
+        .carta {
+            width:calc(100% - 15vw);
+            height: inherit;
+            display: flex;
+            align-items: center;
+            padding: 50px 15px;
+            flex-direction: column;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .desaparecer {
+            display: none;
+        }
+
+        #titulo {
+            margin-top: 10px;
+        }
+
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 40px;
+            padding: 0 10px;
+            font-weight: 400;
+            font-size: 11px;
+        }
+
+        .animacion{
+            animation-name: fade-in;
+            animation-duration: 1000ms;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            animation-timing-function:linear;
+        }
+
+        @keyframes fade-in {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function deteccion() {
+            var titulo = document.getElementById("titulo")
+            var password = document.getElementById("date")
+            var cuerpo = document.getElementById("cuerpo")
+            var boton = document.getElementById("boton")
+            var carta = document.getElementById("carta")
+            var tituloInicial = document.getElementById("titulo_inicial")
+            let respuesta = password.value
+            if (respuesta == '22102016') {
+                cuerpo.classList.add("fondo")
+                cuerpo.classList.add("animacion")
+                carta.classList.toggle("desaparecer")
+                password.classList.add("desaparecer")
+                boton.classList.add("desaparecer")
+                tituloInicial.classList.add("desaparecer")
+            }else{
+                alert("jeje no es esa, vamos cielito, te dare una pista, es nuestra fecha(completita)!")
+                password.value = ""
+            }
+        }
+    </script>
+</head>
+
+<body id="cuerpo">
+    <h1 id="titulo_inicial">Ingresa la clave secreta</h1>
+    <input type="text" name="fecha" id="date">
+    <button onclick="deteccion()" id="boton">Probar!</button>
+    <div id="carta" class="carta desaparecer">
+        <h1 id="titulo">Para mi reina hermosa!</h1>
+        <p>
+            Mi vida hermosa, con este pequeño detalle que te quiero entregar quiero que sepas que no he olvidado
+            todo el amor y cariño que te tengo, no sabes lo agradecido que estoy por tenerte conmigo por tanto tiempo
+            y no sabes lo mucho que amo estar junto a ti, de todo corazón te deseo lo mejor en esta vida porque no 
+            mereces menos y haré todo lo que esté en mis manos para que prosperes y estes como mereces, eres una mujer 
+            muy especial, nadie podrá ser perfecto pero a tu lado me siento de esa forma, esta cartita la cree yo mismo
+            sin plantillas, paginas o ayudas, estas son de las cositas que he aprendido a lo largo del camino, ese camino
+            que siempre me has incitado a seguir y nunca abandonar, el camino de la educación, es por ello y por tantas cositas
+            más que estoy tan agradecido de haberte encontrado, en serio te amo con el alma, con mi corazón y con todo lo demás que
+            aún no soy consciente de tener.
+            <br>
+            <br>
+            Por otro ladito quería desearte el mayor de los exitos en tu nueva carrera cariño, se que la podrás sacar
+            adelante y que con tu esfuerzo y dedicación llegarás lejos lejitos, sabes que cuentas conmigo para lo que 
+            necesites y vamos a sacar nuestro futuro adelante, muchos animos, siempre habrán obstaculos pero recuerda que
+            el que persevera alcanza y eres de las más fuertes en ello, igualmente si algún día lo olvidas te lo recordare
+            😊
+            <br>
+            <br>
+            PDTA: En el almuerzo por favor acompañame a la Che, tengo una pequeña sorpresa para ti!
+            <br>
+            <br>
+            <br>
+            Att: Jann ❤
+        </p>
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap&subset=latin-ext"
+        rel="stylesheet">
+
+</body>
+
+</html>
